@@ -1,8 +1,11 @@
 import { 
   Controller, 
   Get, 
-  Param
+  Param,
+  UseGuards
 } from '@nestjs/common';
+import { AtGuard } from '../common/guards/at.guard';
+import { RtGuard } from '../common/guards/rt.guard';
 
 import { FoodService } from './food.service';
 
@@ -10,6 +13,7 @@ import { FoodService } from './food.service';
 export class FoodController {
   constructor(private readonly foodService: FoodService) {}
 
+  @UseGuards(RtGuard)
   @Get(':barcode')
   async getFoodItem(@Param() params: { barcode: string }): Promise<any> {
     return await this.foodService.getFoodItem(params.barcode);

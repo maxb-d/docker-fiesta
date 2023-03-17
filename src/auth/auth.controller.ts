@@ -1,5 +1,4 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Req } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
+import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards } from '@nestjs/common';
 import { GetCurrentUserId } from '../common/decorators/get-current-user-id.decorator';
 import { GetCurrentUser } from '../common/decorators/get-current-user.decorator';
 import { AtGuard } from '../common/guards/at.guard';
@@ -7,7 +6,6 @@ import { RtGuard } from '../common/guards/rt.guard';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 import { Tokens } from './types/tokens.type';
-import { Request } from 'express';
 
 @Controller('auth')
 export class AuthController {

@@ -9,7 +9,7 @@ import * as redisStore from 'cache-manager-redis-store'
     HttpModule,
     CacheModule.register({
       isGlobal: true,
-      ttl: 100,
+      ttl: 2,
       store: redisStore,
       url: "redis://localhost:6379",
     }),

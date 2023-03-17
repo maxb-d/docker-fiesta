@@ -11,17 +11,17 @@ export class FoodService {
 
     async getFoodItem(barcode: string): Promise<any> {
         // Check if data is in cache
-        const cachedData = await this.cacheService.get<{ code: string }>(
+        const cachedData = await this.cacheService.get(
             barcode.toString()
         )
         if (cachedData) {
             console.log('Getting data from cache')
-            return `${cachedData.code}`
+            return `${cachedData}`
         }
 
         const { data } = await this.httpService.axiosRef.get(`https://world.openfoodfacts.org/api/v0/product/${barcode}.json`)
-        await this.cacheService.set(barcode.toString(), data)
+        await this.cacheService.set(barcode.toString(), JSON.stringify(data))
 
-        return await `${data.code}`
+        return await data
     }
 }
