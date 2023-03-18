@@ -5,7 +5,6 @@ import {
   UseGuards
 } from '@nestjs/common';
 import { AtGuard } from '../common/guards/at.guard';
-import { RtGuard } from '../common/guards/rt.guard';
 
 import { FoodService } from './food.service';
 

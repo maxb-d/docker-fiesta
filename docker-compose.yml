@@ -10,8 +10,9 @@ services:
       - redis
       - postgres
     environment:
-      DATABASE_URL: postgres://user:password@postgres:5432/db
-      JWT_SECRET: 1hard_to_guess_secret7890a
+      DATABASE_URL: ${DATABASE_URL}
+      AT_SECRET: ${AT_SECRET}
+      RT_SECRET: ${RT_SECRET}
       PORT: 3000
     ports:
       - "3000:3000"
