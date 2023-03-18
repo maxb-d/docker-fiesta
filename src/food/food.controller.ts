@@ -13,7 +13,7 @@ import { FoodService } from './food.service';
 export class FoodController {
   constructor(private readonly foodService: FoodService) {}
 
-  @UseGuards(RtGuard)
+  @UseGuards(AtGuard)
   @Get(':barcode')
   async getFoodItem(@Param() params: { barcode: string }): Promise<any> {
     return await this.foodService.getFoodItem(params.barcode);

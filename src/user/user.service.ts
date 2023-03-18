@@ -40,4 +40,8 @@ export class UserService {
         await this.auth.updateRtHash(user.id, tokens.refresh_token)
         return tokens
     }
+
+    async getUsers () {
+        return await this.prisma.user.findMany({ select: {id: true, username: true}})
+    }
 }

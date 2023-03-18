@@ -11,7 +11,8 @@ import * as redisStore from 'cache-manager-redis-store'
       isGlobal: true,
       ttl: 2,
       store: redisStore,
-      url: "redis://localhost:6379",
+      host: process.env.REDIS_HOST,
+      port: process.env.REDIS_PORT
     }),
   ],
   controllers: [FoodController],
