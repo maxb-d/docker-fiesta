@@ -1,7 +1,6 @@
 import { Body, Controller, Param, Post, Get, UseGuards } from '@nestjs/common';
 import { Tokens } from '../auth/types/tokens.type';
 import { AtGuard } from '../common/guards/at.guard';
-import { RtGuard } from '../common/guards/rt.guard';
 import { UserDto } from './dto/user.dto';
 import { UserService } from './user.service';
 
